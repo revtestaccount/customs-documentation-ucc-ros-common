@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Current Version: 0.3
+
+	Document History:
+
+	0.1 (Draft)	01/05/2006:	Document Created
+	
+	0.2 (Draft)	11/10/2006:
+		(1) Added MailboxAcknowledgementList element
+		(2) <xsd:choice> used for complex type MailboxAcknowledgeResponse instead of <xsd:sequence>
+		(3) Added Error Reference Element with sub-Element Error Code
+
+	0.3		01/02/2007:	Removed Draft Status.
+	
+ -->
+<xsd:schema xmlns="http://www.ros.ie/schemas/customs/acknowledgeresponse/v1" xmlns:cus="http://www.ros.ie/schemas/customs/customstypes/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/customs/acknowledgeresponse/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.ros.ie/schemas/customs/customstypes/v1" schemaLocation="../../customstypes/v1/schema.xsd"/>
+	<xsd:element name="MailboxAcknowledgeResponse">
+		<xsd:annotation>
+			<xsd:documentation>Response to an acknowledgement of collected mailbox items</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="MailboxAcknowledgementList"/>
+				<xsd:element ref="ErrorReference"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MailboxAcknowledgementList">
+		<xsd:annotation>
+			<xsd:documentation>Mailbox Acknowledgement List</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="MailboxAcknowledgement" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ErrorReference">
+		<xsd:annotation>
+			<xsd:documentation>Error reference containing details of an error</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ErrorCode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MailboxAcknowledgement">
+		<xsd:annotation>
+			<xsd:documentation>Mailbox acknowledgement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="MailboxId"/>
+				<xsd:element ref="AcknowledgementStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MailboxId" type="cus:IEMailboxId">
+		<xsd:annotation>
+			<xsd:documentation>Mailbox ID</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AcknowledgementStatus" type="cus:IEAcknowledgementStatus">
+		<xsd:annotation>
+			<xsd:documentation>Acknowledgement Status</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ErrorCode" type="cus:IEErrorCode">
+		<xsd:annotation>
+			<xsd:documentation>Error code</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

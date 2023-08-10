@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Current Version: 0.2
+
+	Document History:
+
+	0.1 (Draft)	01/05/2006:	Document Created
+	
+	0.2 		01/02/2007:	Removed Draft Status
+
+ -->
+<xsd:schema xmlns="http://www.ros.ie/schemas/customs/collectrequest/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/customs/collectrequest/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="MailboxCollectRequest">
+		<xsd:annotation>
+			<xsd:documentation>Request for uncollected mailbox items</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

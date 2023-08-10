@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Current Version: 0.1
+	0.1 (Draft)	16/06/2008:	Document Created
+
+ -->
+<xs:schema targetNamespace="http://www.ros.ie/schemas/customs/transactionidrequest/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ros.ie/schemas/customs/transactionidrequest/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="TransactionIDRequest">
+		<xs:annotation>
+			<xs:documentation>Transaction ID request from Traders for Customs submissions</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Transactions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Transactions">
+		<xs:annotation>
+			<xs:documentation>Transactions</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="NumberOfTxIds"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NumberOfTxIds">
+		<xs:annotation>
+			<xs:documentation>Number of transaction ID requests</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="1"/>
+				<xs:maxInclusive value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

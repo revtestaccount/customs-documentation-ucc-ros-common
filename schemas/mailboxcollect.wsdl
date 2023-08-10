@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--
+
+Document History:
+
+======== Version 0.1 ====================================
+	i. Document Created 01/04/2009
+	
+======== Version 0.2 ====================================
+	i. Document updated 06/01/2020
+		Updated wsdl for SOAP version 1.2
+
+======== Version 0.3 ====================================
+	i. Document updated 10/08/2023
+		Added back missing namespaces definitions
+		
+-->
+
+<wsdl:definitions 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+	xmlns:collectreq="http://www.ros.ie/schemas/customs/collectrequest/v1" 
+	xmlns:collectres="http://www.ros.ie/schemas/customs/collectresponse/v1" 
+	xmlns="http://www.ros.ie/schemas/customs/service/mailboxCollect" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.ros.ie/schemas/customs/service/mailboxCollect" 
+	name="mailboxCollectService">
+
+
+	<wsdl:types>
+		<xs:schema><xs:import namespace="http://www.ros.ie/schemas/customs/collectrequest/v1" schemaLocation="customs/collectrequest/v1/schema.xsd"/></xs:schema>
+		<xs:schema><xs:import namespace="http://www.ros.ie/schemas/customs/collectresponse/v1" schemaLocation="customs/collectresponse/v1/schema.xsd"/></xs:schema>
+	</wsdl:types>
+		
+		
+	<wsdl:message name="MailboxCollectReq"><wsdl:part name="parameters" element="collectreq:MailboxCollectRequest"/></wsdl:message>
+	<wsdl:message name="MailboxCollectRes"><wsdl:part name="parameters" element="collectres:MailboxCollectResponse"/></wsdl:message>
+	
+	
+	<wsdl:portType name="MailboxCollectPortType">
+		<wsdl:operation name="MailboxCollect">
+			<wsdl:input message="MailboxCollectReq"/>
+			<wsdl:output message="MailboxCollectRes"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	
+	<wsdl:binding name="MailboxCollectSoapBinding" type="MailboxCollectPortType">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="MailboxCollect">
+			<soap12:operation/>
+			<wsdl:input><soap12:body use="literal"/></wsdl:input>
+			<wsdl:output><soap12:body use="literal"/></wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	
+	<wsdl:service name="MailboxCollect">
+		<wsdl:port name="MailboxCollect" binding="MailboxCollectSoapBinding">
+			<soap12:address location="https://www.ros.ie/customs/webservice/v1/soap/mailboxCollect"/>
+		</wsdl:port>
+	</wsdl:service>
+	
+	
+</wsdl:definitions>

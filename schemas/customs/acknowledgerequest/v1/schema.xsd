@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Current Version: 0.2
+
+	Document History:
+
+	0.1 (Draft)	01/05/2006:	Document Created
+
+	0.2		01/02/2007:	Removed Draft Status.
+
+ -->
+<xsd:schema xmlns="http://www.ros.ie/schemas/customs/acknowledgerequest/v1" xmlns:cus="http://www.ros.ie/schemas/customs/customstypes/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/customs/acknowledgerequest/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.ros.ie/schemas/customs/customstypes/v1" schemaLocation="../../customstypes/v1/schema.xsd"/>
+	<xsd:element name="MailboxAcknowledgeRequest">
+		<xsd:annotation>
+			<xsd:documentation>Request to acknowledge collected mailbox items</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="MailboxId" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MailboxId" type="cus:IEMailboxId">
+		<xsd:annotation>
+			<xsd:documentation>Mailbox IDs</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

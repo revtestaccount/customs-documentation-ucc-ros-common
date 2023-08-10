@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+	Current Version: 0.1
+	0.1 (Draft)	16/06/2008:	Document Created
+
+ -->
+<xs:schema targetNamespace="http://www.ros.ie/schemas/customs/transactionidresponse/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ros.ie/schemas/customs/transactionidresponse/v1" xmlns:cus="http://www.ros.ie/schemas/customs/customstypes/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.ros.ie/schemas/customs/customstypes/v1" schemaLocation="../../customstypes/v1/schema.xsd"/>
+	<xs:element name="TransactionIDResponse">
+		<xs:annotation>
+			<xs:documentation>ROS Response when a Transaction ID request is submitted to ROS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="Transactions"/>
+				<xs:element ref="ErrorReference"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Transactions">
+		<xs:annotation>
+			<xs:documentation>Transaction details</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TransactionId" maxOccurs="100"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TransactionId" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Transaction IDs</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ErrorReference">
+		<xs:annotation>
+			<xs:documentation>Error reference containing details of an error</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ErrorCode"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ErrorCode" type="cus:IEErrorCode">
+		<xs:annotation>
+			<xs:documentation>Error code</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>
