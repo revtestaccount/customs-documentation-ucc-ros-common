@@ -8,12 +8,9 @@ Document History:
 	i. Document Created 01/04/2009
 	
 ======== Version 0.2 ====================================
-	i. Document updated 11/03/2020
+	ii. Document updated 11/03/2020
 		Updated wsdl for SOAP version 1.2
-
-======== Version 0.3 ====================================
-	i. Document updated 10/08/2023
-		Added back missing namespaces definitions
+		
 -->
 
 <wsdl:definitions 

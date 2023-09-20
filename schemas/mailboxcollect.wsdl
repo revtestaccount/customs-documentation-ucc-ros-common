@@ -8,12 +8,8 @@ Document History:
 	i. Document Created 01/04/2009
 	
 ======== Version 0.2 ====================================
-	i. Document updated 06/01/2020
+	ii. Document updated 06/01/2020
 		Updated wsdl for SOAP version 1.2
-
-======== Version 0.3 ====================================
-	i. Document updated 10/08/2023
-		Added back missing namespaces definitions
 		
 -->
 
@@ -58,7 +54,7 @@ Document History:
 	
 	<wsdl:service name="MailboxCollect">
 		<wsdl:port name="MailboxCollect" binding="MailboxCollectSoapBinding">
-			<soap12:address location="https://www.ros.ie/customs/webservice/v1/soap/mailboxCollect"/>
+			<soap12:address location="https://www.ros.ie/customs/webservice/v1/soap/mailboxCollect" />
 		</wsdl:port>
 	</wsdl:service>
 	
